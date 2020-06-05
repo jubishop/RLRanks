@@ -6,6 +6,12 @@ class Ranks
   Rank = RStruct.new(:playlist, :rank) {
     include Comparable
 
+    def initialize(args = {})
+      args.transform_keys!(&:to_sym)
+      args[:rank] = args.fetch(:rank).to_i
+      super(args)
+    end
+
     def <=>(other)
       return rank <=> other.rank
     end
