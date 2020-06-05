@@ -111,9 +111,6 @@ Style/MissingElse:
 Style/NumericLiterals:
   Enabled: false
 
-Style/OptionHash:
-  Enabled: false
-
 Style/ParallelAssignment:
   Enabled: false
 
