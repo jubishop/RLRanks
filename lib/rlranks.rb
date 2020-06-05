@@ -6,9 +6,9 @@ class Ranks
   Rank = RStruct.new(:playlist, :rank) {
     include Comparable
 
-    def initialize(args)
+    def initialize(*args)
       args[1] = args[1].to_i
-      super(args)
+      super(*args)
     end
 
     def <=>(other)
