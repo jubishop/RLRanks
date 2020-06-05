@@ -8,7 +8,7 @@ class Ranks
 
     def initialize(*args)
       args[0] = args[0].to_s
-      args[1] = args[1].to_i
+      args[1] = args[1].to_i unless args[1].nil?
       super(*args)
     end
 
