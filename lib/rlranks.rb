@@ -7,12 +7,17 @@ class Ranks
     include Comparable
 
     def initialize(*args)
+      args[0] = args[0].to_s
       args[1] = args[1].to_i
       super(*args)
     end
 
     def <=>(other)
       return rank <=> other.rank
+    end
+
+    def to_i
+      rank
     end
   }
   private_constant :Rank
@@ -46,12 +51,8 @@ class Ranks
     return @ranks.empty?
   end
 
-  def each_pair
-    @ranks.each_pair { |column, rank| yield column, rank }
-  end
-
-  def each
-    @ranks.each_value { |rank| yield rank }
+  def each(&block)
+    @ranks.each(&block)
   end
 
   def rank(column)
