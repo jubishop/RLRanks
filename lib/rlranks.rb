@@ -3,13 +3,13 @@ require 'rstruct'
 class RLRanks
   include Enumerable
 
-  Rank = RStruct.new(:playlist, [:rank]) {
+  class Rank
     include Comparable
 
+    attr_reader :playlist, :rank
     def initialize(playlist, rank = nil)
-      playlist = playlist.to_s
-      rank = rank.to_i unless rank.nil?
-      super(playlist, rank)
+      @playlist = playlist.to_s
+      @rank = rank.to_i unless rank.nil?
     end
 
     def <=>(other)
