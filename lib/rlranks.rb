@@ -21,6 +21,7 @@ class RLRanks
       rank
     end
   end
+  private_constant :Rank
 
   attr_reader :id, :account, :platform, :ranks, :best
 
