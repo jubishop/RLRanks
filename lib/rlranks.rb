@@ -1,6 +1,6 @@
 require 'rstruct'
 
-class Ranks
+class RLRanks
   include Enumerable
 
   Rank = RStruct.new(:playlist, :rank) {
