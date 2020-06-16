@@ -7,6 +7,7 @@ class RLRanks
     include Comparable
 
     attr_reader :playlist, :rank
+
     def initialize(playlist, rank = nil)
       @playlist = playlist.to_s
       @rank = rank.to_i unless rank.nil?
@@ -19,8 +20,7 @@ class RLRanks
     def to_i
       rank
     end
-  }
-  private_constant :Rank
+  end
 
   attr_reader :id, :account, :platform, :ranks, :best
 
