@@ -40,7 +40,7 @@ class RLRanks
       standard: Rank.new('Standard', *standard),
       doubles: Rank.new('Doubles', *doubles),
       duel: Rank.new('Duel', *duel),
-      solo_standard: Rank.new('Solo', *solo_standard),
+      solo_standard: Rank.new('Solo 3s', *solo_standard),
       rumble: Rank.new('Rumble', *rumble),
       dropshot: Rank.new('Dropshot', *dropshot),
       hoops: Rank.new('Hoops', *hoops),
