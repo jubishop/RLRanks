@@ -6,11 +6,12 @@ class RLRanks
   class Rank
     include Comparable
 
-    attr_reader :playlist, :rank
+    attr_reader :playlist, :rank, :mmr
 
-    def initialize(playlist, rank = nil)
+    def initialize(playlist, rank = nil, mmr = nil)
       @playlist = playlist.to_s
       @rank = rank.to_i unless rank.nil?
+      @mmr = mmr.to_i unless mmr.nil?
     end
 
     def <=>(other)
@@ -36,14 +37,14 @@ class RLRanks
                  snow_day: nil)
     @id, @account, @platform = id, account, platform.to_sym
     @ranks = {
-      standard: Rank.new('Standard', standard),
-      doubles: Rank.new('Doubles', doubles),
-      duel: Rank.new('Duel', duel),
-      solo_standard: Rank.new('Solo Standard', solo_standard),
-      rumble: Rank.new('Rumble', rumble),
-      dropshot: Rank.new('Dropshot', dropshot),
-      hoops: Rank.new('Hoops', hoops),
-      snow_day: Rank.new('Snow Day', snow_day)
+      standard: Rank.new('Standard', *standard),
+      doubles: Rank.new('Doubles', *doubles),
+      duel: Rank.new('Duel', *duel),
+      solo_standard: Rank.new('Solo Standard', *solo_standard),
+      rumble: Rank.new('Rumble', *rumble),
+      dropshot: Rank.new('Dropshot', *dropshot),
+      hoops: Rank.new('Hoops', *hoops),
+      snow_day: Rank.new('Snow Day', *snow_day)
     }.reject { |_, rank| rank.rank.nil? }
     @best = @ranks.values.max
   end
