@@ -48,14 +48,16 @@ class RLRanks
     }.reject { |_, rank| rank.rank.nil? }
   end
 
-  def unranked?
-    return @ranks.empty?
+  def unranked?(playlists = [])
+    return @ranks.empty? if playlists.empty?
+
+    return @ranks.values_at(*playlists).compact.empty?
   end
 
   def best(playlists = [])
     return @ranks.values.max if playlists.empty?
 
-    return @ranks.values_at(*playlists).max
+    return @ranks.values_at(*playlists).compact.max
   end
 
   def each(&block)
