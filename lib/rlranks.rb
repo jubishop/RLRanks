@@ -64,8 +64,8 @@ class RLRanks
     @ranks.each(&block)
   end
 
-  def rank(column)
-    @ranks[column]
+  def rank(playlist)
+    @ranks[playlist]
   end
 
   def ==(other)
