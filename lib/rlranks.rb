@@ -51,13 +51,15 @@ class RLRanks
   def unranked?(playlists = [])
     return @ranks.empty? if playlists.empty?
 
-    return @ranks.values_at(*playlists).compact.empty?
+    return playlists.any? { |playlist| @ranks.key?(playlist) }
   end
 
   def best(playlists = [])
     return @ranks.values.max if playlists.empty?
 
-    return @ranks.values_at(*playlists).compact.max
+    filtered_ranks = @ranks.values_at(*playlists)
+    filtered_ranks.compact!
+    return filtered_ranks.max
   end
 
   def each(&block)
