@@ -51,9 +51,7 @@ class RLRanks
   def unranked?(playlists = [])
     return @ranks.empty? if playlists.empty?
 
-    puts playlists
-    puts @ranks
-    return playlists.any? { |playlist| @ranks.key?(playlist) }
+    return playlists.none? { |playlist| @ranks.key?(playlist) }
   end
 
   def best(playlists = [])
