@@ -24,7 +24,7 @@ class RLRanks
   end
   private_constant :Rank
 
-  attr_reader :id, :account, :platform, :ranks, :best
+  attr_reader :id, :account, :platform, :ranks
 
   def initialize(id, account, platform = :steam,
                  standard: nil,
@@ -46,11 +46,16 @@ class RLRanks
       hoops: Rank.new('Hoops', *hoops),
       snow_day: Rank.new('Snow Day', *snow_day)
     }.reject { |_, rank| rank.rank.nil? }
-    @best = @ranks.values.max
   end
 
   def unranked?
     return @ranks.empty?
+  end
+
+  def best(playlists = [])
+    return @ranks.values.max if playlists.empty?
+
+    return @ranks.values_at(*playlists).max
   end
 
   def each(&block)
