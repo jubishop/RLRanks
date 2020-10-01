@@ -45,7 +45,7 @@ class RLRanks
       rumble: Rank.new('Rumble', *rumble),
       dropshot: Rank.new('Dropshot', *dropshot),
       hoops: Rank.new('Hoops', *hoops),
-      snow_day: Rank.new('Snow Day', *snow_day)
+      snow_day: Rank.new('Snow Day', *snow_day),
       tournament: Rank.new('Tournaments', *tournament)
     }.reject { |_, rank| rank.rank.nil? }
   end
