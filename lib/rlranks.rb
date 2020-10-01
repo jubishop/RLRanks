@@ -34,7 +34,8 @@ class RLRanks
                  rumble: nil,
                  dropshot: nil,
                  hoops: nil,
-                 snow_day: nil)
+                 snow_day: nil,
+                 tournament: nil)
     @id, @account, @platform = id, account, platform.to_sym
     @ranks = {
       standard: Rank.new('Standard', *standard),
@@ -45,6 +46,7 @@ class RLRanks
       dropshot: Rank.new('Dropshot', *dropshot),
       hoops: Rank.new('Hoops', *hoops),
       snow_day: Rank.new('Snow Day', *snow_day)
+      tournament: Rank.new('Tournaments', *tournament)
     }.reject { |_, rank| rank.rank.nil? }
   end
 
