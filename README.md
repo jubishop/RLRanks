@@ -1,4 +1,4 @@
-# Calculated
+# RLRanks
 
 [![Rubocop Status](https://github.com/jubishop/rlranks/workflows/Rubocop/badge.svg)](https://github.com/jubishop/rlranks/actions)
 
