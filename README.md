@@ -1,6 +1,6 @@
 # RLRanks
 
-[![Rubocop Status](https://github.com/jubishop/rlranks/workflows/Rubocop/badge.svg)](https://github.com/jubishop/rlranks/actions)
+[![Rubocop Status](https://github.com/jubishop/rlranks/workflows/Rubocop/badge.svg)](https://github.com/jubishop/rlranks/actions/workflows/rubocop.yml)
 
 A Ruby library for holding a user's RL Ranks.
 
