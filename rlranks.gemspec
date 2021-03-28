@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name          = 'rlranks'
   spec.version       = '1.0'
-  spec.summary       = "A Ruby library for holding a user's RL Ranks."
+  spec.summary       = %q(A Ruby library for holding a user's RL Ranks.)
   spec.authors       = ['Justin Bishop']
   spec.email         = ['jubishop@gmail.com']
   spec.homepage      = 'https://github.com/jubishop/rlranks'
