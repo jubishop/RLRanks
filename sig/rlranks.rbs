@@ -7,8 +7,13 @@ type playlist = :doubles
               | :standard
               | :tournament
 
-class RLRanks
-  include Enumerable
+type platform = :steam
+              | :epic
+              | :ps
+              | :xbox
+
+class RLRanks[unchecked out Elem]
+  include Enumerable[Elem]
 
   attr_reader id: Integer
   attr_reader account: Integer | String
@@ -24,7 +29,7 @@ class RLRanks
     tournament: Rank
   }
 
-  def initialize: (Integer id, Integer | String account, ?Symbol platform,
+  def initialize: (Integer id, Integer | String account, ?platform platform,
                    ?standard: Integer | Array[Integer],
                    ?doubles: Integer | Array[Integer],
                    ?duel: Integer | Array[Integer],
@@ -32,7 +37,7 @@ class RLRanks
                    ?dropshot: Integer | Array[Integer],
                    ?hoops: Integer | Array[Integer],
                    ?snow_day: Integer | Array[Integer],
-                   ?tournament: Integer | Array[Integer]) -> RLRanks
+                   ?tournament: Integer | Array[Integer]) -> void
 
   def unranked?: (?Array[playlist] playlists) -> bool
   def best: (?Array[playlist] playlists) -> Rank?
@@ -49,7 +54,7 @@ class RLRanks
     attr_reader rank: Integer
     attr_reader mmr: Integer
 
-    def initialize: (String playlist, ?Integer rank, ?Integer mmr) -> Rank
+    def initialize: (String playlist, ?Integer rank, ?Integer mmr) -> void
 
     def <=>: (Rank other) -> Integer
     def to_i: -> Integer
