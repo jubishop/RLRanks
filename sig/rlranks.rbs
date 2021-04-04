@@ -12,8 +12,8 @@ type platform = :steam
               | :ps
               | :xbox
 
-class RLRanks[unchecked out Elem]
-  include Enumerable[Elem]
+class RLRanks
+  include Enumerable[Rank]
 
   attr_reader id: Integer
   attr_reader account: Integer | String
@@ -41,7 +41,7 @@ class RLRanks[unchecked out Elem]
 
   def unranked?: (?Array[playlist] playlists) -> bool
   def best: (?Array[playlist] playlists) -> Rank?
-  def each: -> (Enumerator[[playlist, Rank]])
+  def each: { (Rank) -> void } -> void
   def rank: (playlist playlist) -> Rank
   def ==: (RLRanks other) -> bool
 
